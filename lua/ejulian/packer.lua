@@ -33,6 +33,7 @@ use('mbbill/undotree')
 use('tpope/vim-fugitive')
 
 use('neovim/nvim-lspconfig')  
+use('ThePrimeagen/vim-be-good')
 
 end)
 
