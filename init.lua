@@ -1,5 +1,5 @@
-vim.opt.guicursor = ""
 
+vim.opt.guicursor = ""
 
 
 
