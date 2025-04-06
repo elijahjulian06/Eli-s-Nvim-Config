@@ -1,5 +1,8 @@
 -- Bootstrap lazy.nvim
+ 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+ 
+ 
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
   local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
@@ -22,7 +25,6 @@ require("lazy").setup({
     { "wbthomason/packer.nvim" },   -- Packer itself (if you want to manage it through lazy.nvim)
     { "rstacruz/vim-closer" },      -- Vim Closer
 
-    -- Telescope with dependency
     {
       "nvim-telescope/telescope.nvim", 
       tag = "0.1.8", 
@@ -30,6 +32,7 @@ require("lazy").setup({
     },
 
     -- Rose-Pine colorscheme
+    
     {
       "rose-pine/neovim", 
       as = "rose-pine", 

@@ -1,4 +1,9 @@
-
+require("ejulian.lazy")
+require("ejulian.remap")
+require("ejulian.set")
+require("after.plugin.treesitter")
+require("after.plugin.lsp")
+require("after.plugin.telescope")
 vim.opt.guicursor = ""
 
 

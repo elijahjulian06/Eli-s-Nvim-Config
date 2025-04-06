@@ -1,17 +1,34 @@
-local lspconfig = require 'lspconfig'
-local configs = require 'lspconfig/configs'
+return {
+  "neovim/nvim-lspconfig",
+  event = { "BufReadPre", "BufNewFile" }, -- load early for LSP
+  config = function()
+    local lspconfig = require("lspconfig")
 
-if not configs.golangcilsp then
- 	configs.golangcilsp = {
-		default_config = {
-			cmd = {'/home/kali/go/bin/golangci-lint-langserver'},
-			root_dir = lspconfig.util.root_pattern('.git', 'go.mod'),
-			init_options = {
-					command = { "golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1" };
-			}
-		};
-	}
-end
-lspconfig.golangci_lint_ls.setup {
-	filetypes = {'go','gomod'}
+    -- Golang
+    lspconfig.gopls.setup({})
+
+    -- Lua (Neovim dev)
+    lspconfig.lua_ls.setup({
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" },
+          },
+          workspace = {
+            library = vim.api.nvim_get_runtime_file("", true),
+            checkThirdParty = false,
+          },
+        },
+      },
+    })
+
+    -- Java
+    lspconfig.jdtls.setup({})
+
+    -- C/C++
+    lspconfig.clangd.setup({})
+  end,
 }
+
+
+

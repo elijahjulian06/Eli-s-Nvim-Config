@@ -1,12 +1,12 @@
-function ColorMyPencils(color)
-	color = color or "rose-pine"
-	vim.cmd.colorscheme(color)
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-end
+-- Example for rose-pine colorscheme plugin in lazy.nvim
 
-ColorMyPencils(color)
+return {
+{
+  'rose-pine/neovim',
+  as = 'rose-pine',
+  config = function()
+    vim.cmd('colorscheme rose-pine')
+  end
+}
+}
 
-
--- Set up nvim-lspconfig
- 
