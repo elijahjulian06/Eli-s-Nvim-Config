@@ -4,6 +4,7 @@ require("ejulian.set")
 require("after.plugin.treesitter")
 require("after.plugin.lsp")
 require("after.plugin.telescope")
+require("after.plugin.fugative")
 vim.opt.guicursor = ""
 
 
