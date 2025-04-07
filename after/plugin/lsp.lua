@@ -1,3 +1,5 @@
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+
 require'lspconfig'.lua_ls.setup {
   on_init = function(client)
     if client.workspace_folders then
@@ -29,5 +31,10 @@ require'lspconfig'.lua_ls.setup {
   end,
   settings = {
     Lua = {}
-  }
+  },
+
+  capabilities = capabilities 
 }
+
+
+
