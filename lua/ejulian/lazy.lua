@@ -20,6 +20,8 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim and configure plugins
 require("lazy").setup({
   spec = {
+    
+      { "rstacruz/vim-closer" },
     -- Plugin Definitions
     { "wbthomason/packer.nvim" },   -- Packer itself (if you want to manage it through lazy.nvim)
     { "rstacruz/vim-closer" },      -- Vim Closer
