@@ -52,7 +52,11 @@ require("lazy").setup({
     -- LSP and Completion
     { "neovim/nvim-lspconfig" },
     { "ThePrimeagen/vim-be-good" },
-    { "Saghen/blink.cmp" }
+    { "Saghen/blink.cmp", 
+        dependencies = { 'rafamadriz/friendly-snippets' },
+
+        completion = { documentation = { auto_show = true } }
+    }
   },
 {
   'saghen/blink.cmp',
