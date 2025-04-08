@@ -1,13 +1,8 @@
 require("ejulian.lazy")
 require("ejulian.remap")
 require("ejulian.set")
-require("after.plugin.treesitter")
-require("after.plugin.lsp")
-require("after.plugin.telescope")
-require("after.plugin.fugative")
-require("after.plugin.completion")
-
-
+require("extra.fugative")
+require("extra.undotree")
 vim.opt.guicursor = ""
 
 
@@ -46,5 +41,3 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
-
-
