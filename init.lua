@@ -1,8 +1,6 @@
 require("ejulian.lazy")
 require("ejulian.remap")
 require("ejulian.set")
-require("extra.fugative")
-require("extra.undotree")
 vim.opt.guicursor = ""
 
 
