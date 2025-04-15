@@ -16,22 +16,14 @@ end
 
 -- Hey! Put lazy into the runtimepath for neovim!
 vim.opt.runtimepath:prepend(lazypath)
-
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
--- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
+		{ "rose-pine/neovim",  config = function() vim.cmd.colorscheme "rose-pine" end },
 		{ import = "ejulian.plugins" },
-        { "ThePrimeagen/vim-be-good" },
-        { "rstacruz/vim-closer" }
-
-	    
-    },
+	},
 	change_detection = {
 		-- automatically check for config file changes and reload the ui
 		enabled = false,

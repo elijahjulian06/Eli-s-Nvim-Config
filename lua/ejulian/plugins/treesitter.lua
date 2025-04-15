@@ -1,18 +1,23 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",  -- auto-update parsers when the plugin is installed or updated
-  event = { "BufReadPost", "BufNewFile" }, -- lazy-load on file open
-  config = function()
-    require("nvim-treesitter.configs").setup {
-      ensure_installed = { "lua", "java", "go", "c" },
-      sync_install = false,
-      auto_install = true,
-
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-      },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        config = function()
+            require 'nvim-treesitter.configs'.setup {
+                ensure_installed = { "java", "go", "gomod", "gowork", "gosum", "c", "lua","vim", "vimdoc", "query", "markdown", "markdown_inline" },
+                auto_install = true,
+                highlight = {
+                    enable = true,
+                    disable = function(lang, buf)
+                        local max_filesize = 100 * 1024 -- 100 KB
+                        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+                        if ok and stats and stats.size > max_filesize then
+                            return true
+                        end
+                    end,
+                    additional_vim_regex_highlighting = false,
+                },
+            }
+        end,
     }
-  end
 }
-
